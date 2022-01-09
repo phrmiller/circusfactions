@@ -1,0 +1,118 @@
+/* Fonts */
+
+@font-face {
+    font-family: "EBGaramond";
+    src: url("fonts/EBGaramond-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "EBGaramond-Italic";
+    src: url("fonts/EBGaramond-Italic-VariableFont_wght.ttf");
+}
+
+
+/* Basic Site Layout */
+
+body {
+    font-family: "EBGaramond";
+    margin: 0;
+}
+
+.site-container {
+    height: 100vh;
+    max-width: 700px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+        'header'
+        'nav'
+        'content'
+        'footer';
+}
+
+header {
+    margin-top: 30px;
+    grid-area: header;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 26px;
+    letter-spacing: 8px;
+    font-weight: lighter;
+    margin-bottom: 10px;
+}
+
+    .header-kerning-r {
+        letter-spacing: 5px;
+    }
+
+nav {
+    grid-area: nav;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.content {
+    grid-area: content;
+}
+
+footer {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: lighter;
+    grid-area: footer;
+    padding-bottom: 20px;
+    border-top: solid 1px lightgray;
+    margin-top:10px;
+    padding-top: 20px;
+}
+
+.home-page-post-summary {
+    border-top: solid 1px lightgray;
+    padding-top: 30px;
+    margin-top:30px;
+    text-align: center;
+}
+
+
+.home-page-post-summary-image {
+    max-width: 100%;
+}
+
+.home-page-post-summary-text {
+    margin: 0 8px 0 8px;
+}
+
+
+.home-page-post-summary-title {
+    margin-top: 5px;
+    font-size: 48px;
+    font-weight: lighter;
+    line-height: 52px;
+    margin-bottom: 10px;
+}
+
+.home-page-post-summary-body {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.home-page-post-summary-metadata {
+    text-transform: uppercase;
+    font-size: 12px;
+    color: gray;
+    margin-bottom: 40px;
+}
+
+.home-page-post-summary-metadata-date {
+    margin-right: 5px;
+}
+
+.home-page-post-summary-metadata-tag {
+    margin-right: 5px;
+}
+
