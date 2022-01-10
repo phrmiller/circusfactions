@@ -13,6 +13,11 @@
 
 /* Basic Site Layout */
 
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+
 body {
     font-family: "EBGaramond";
     margin: 0;
