@@ -4,9 +4,9 @@
     <h1 class="post-title">{{post.title}}</h1>
     <div class="post-metadata">
         <span class="post-metadata-date">{{post.date}}</span>
-        {% set list_of_tags = post.tags.split(",") %}
+        {% set list_of_tags = post.tags.split(","" ") %}
         {% for tag in list_of_tags %}
-        <a href = "categories/{{tag}}"><span class="post-metadata-tags">{{tag}}</span></a>
+        <a href="categories/{{tag}}.html"><span class="post-metadata-tags">{{tag}}</span></a>
         {% endfor %}
     </div>
     <div class="post-content">
