@@ -1,8 +1,9 @@
 ---
 title: The alarm clock
 date: 2021-12-04
-tags: travel, socks
-thumbnail: images/alarm-clock.jpeg
+categories: travel, socks
+image: images/alarm-clock.jpeg
+image-alt-text: A classic alarm clock.
 summary: Ticking on the chest of drawers.
 ---
 

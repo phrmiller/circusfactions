@@ -1,8 +1,9 @@
 ---
 title: Gregor Samsa
 date: 2021-12-01
-tags: tech, history, life
-thumbnail: images/bug.jpg
+categories: tech, history, life
+image: images/bug.jpeg
+image-alt-text: A cockroach lying in a bed
 summary: troubled dreams
 ---
 

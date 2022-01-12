@@ -11,37 +11,44 @@
 }
 
 
-/* Basic layout sections */
+/* Basic site layout sections. */
 
 html {
-    height: 100%; /* Necessary for sticky footer */
+    height: 100%; /* Necessary for sticky footer. */
 }
 
 body {
-    height: 100%; /* Necessary for sticky footer */
-    display: grid; /* Necessary for sticky footer */
-    grid-template-rows: auto auto 1fr auto; /* Necessary for sticky footer */
-    margin: 0; /* Remove default margin on body */
+    height: 100%; /* Necessary for sticky footer. */
+    display: grid; /* Necessary for sticky footer. */
+    grid-template-rows: auto auto 1fr auto; /* Necessary for sticky footer. */
+    margin: 0; /* Remove default margin on body. */
     font-family: "EBGaramond";
     text-size-adjust: none; /* Keeps text size the same in both portrait and landscape on mobile devices  */
 }
 
 header {
+    margin: 40px 0 10px 0;
+    font-weight: 400;
+    font-size: 48px;
+    letter-spacing: 8px;
+    line-height: 60px;
     text-align: center;
     text-transform: uppercase;
-    font-size: 26px;
-    letter-spacing: 8px;
 }
 
 nav {
+    margin: 0 0 40px 0;
+    padding: 0 0 30px 0;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 3px;
     text-align: center;
     text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 2.5px;
+    border-bottom: 1px solid lightgray;
 }
 
-nav img {
-    height: 12px;
+nav a {
+    margin: 0 10px 0 10px;
 }
 
 .main {
@@ -50,18 +57,58 @@ nav img {
 }
 
 footer {
+    margin: 40px 0 40px 0;
+    padding: 30px 0 30px 0;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 3px;
     text-align: center;
+    text-transform: uppercase;
+    border-top: 1px solid lightgray;
 }
+
+footer a {
+    margin: 0 10px 0 10px;
+}
+
+
+
+/* Links */
+
+a, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+
 
 /* Home page content styling */
 
-.home-page-post-summary {
+.home_page_post_summary {
     text-align: center;
+    margin: 0 0 60px 0;
 }
 
-.home-page-post-summary-image {
+.home_page_post_summary_image {
     max-width: 100%; /* Ensures that image is constrained to .main max-width, but allows image to shrink for smaller screens */
 }
+
+.home_page_post_summary_title {
+    text-align: left;
+    font-size: 48px;
+}
+
+.home_page_post_summary_summary {
+    text-align: left;
+    font-size: 18px;
+}
+
+.home_page_post_summary_metadata {
+    text-align: left;
+}
+
 
 
 /* Post page content styling */
@@ -77,10 +124,26 @@ footer {
     text-align: center;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Persnickety details */
 
 .header-kerning-r {
-    letter-spacing: 5px; /* Fixes kerning issue with letter 'r' in 'circus factions' */
+    letter-spacing: 3px; /* Fixes kerning issue with letter 'r' in 'circus factions' */
 }
 
 

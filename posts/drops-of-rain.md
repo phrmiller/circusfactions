@@ -1,8 +1,9 @@
 ---
-title: Drops of rain
+title: Drops of Rain
 date: 2021-12-02
-tags: philosophy, science, business, life
-thumbnail: images/raindrops.jpg
+categories: philosophy, science, business, life
+image: images/raindrops.jpeg
+image-alt-text: Raindrops on a window pane
 summary: However hard he threw
 ---
 

@@ -1,8 +1,9 @@
 ---
 title: Still hurriedly thinking
 date: 2021-12-06
-tags: plums, style, socks
-thumbnail: images/thinking.jpg
+categories: plums, style, socks
+image: images/thinking.jpeg
+image-alt-text: A man with his hand to his chin, thinking hard.
 summary: Unable to decide to get out of the bed.
 ---
 

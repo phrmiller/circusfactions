@@ -25,8 +25,10 @@ for markdown_post in os.listdir('posts'):
     file_path = os.path.join('posts', markdown_post)
     with open(file_path, 'r') as file:
         posts[markdown_post] = markdown(file.read(), extras=['metadata'])
+for post in posts:
+    posts[post].metadata['date'] = datetime.strptime(posts[post].metadata['date'], '%Y-%m-%d')
 posts = {
-    post: posts[post] for post in sorted(posts, key=lambda post: datetime.strptime(posts[post].metadata['date'], '%Y-%m-%d'), reverse=True)
+    post: posts[post] for post in sorted(posts, key=lambda post: posts[post].metadata['date'], reverse=True)
 }
 
 # Load jinja2 templates for each type of page you want to create.
@@ -56,7 +58,7 @@ for post in posts:
         'content': posts[post],
         'title': post_metadata['title'],
         'date': post_metadata['date'],
-        'tags': post_metadata['tags']
+        'categories': post_metadata['categories']
     }
     post_html = post_template.render(post=post_data)
     post_file_path = 'html/{title}.html'.format(title=post.replace('.md',''))
@@ -68,26 +70,26 @@ all_html = all_template.render(posts=list(zip(posts_metadata, posts_urls)))
 with open('html/all.html', 'w') as file:
     file.write(all_html)
 
-# Establish tag counts
-tag_counts = {}
-all_tags = []
+# Establish category counts
+category_counts = {}
+all_categories = []
 for post in posts:
-    all_tags.extend(posts[post].metadata['tags'].split(","" "))
-for i in all_tags:
-    tag_counts[i] = tag_counts.get(i, 0) + 1
-tag_counts = {
-    tag: tag_counts[tag] for tag in sorted(tag_counts, key=lambda tag: tag_counts[tag], reverse=True)
+    all_categories.extend(posts[post].metadata['categories'].split(","" "))
+for i in all_categories:
+    category_counts[i] = category_counts.get(i, 0) + 1
+category_counts = {
+    category: category_counts[category] for category in sorted(category_counts, key=lambda category: category_counts[category], reverse=True)
 }
 
 # Render html for categories page
-categories_html = categories_template.render(tags=tag_counts)
+categories_html = categories_template.render(categories=category_counts)
 with open('html/categories.html', 'w') as file:
     file.write(categories_html)
 
-# Create a page for all posts with a given tag
-for tag in tag_counts:
-    category_html = category_template.render(posts=list(zip(posts_metadata, posts_urls)), tags=tag)
-    category_file_path = 'html/categories/{title}.html'.format(title=tag)
+# Create a page for all posts with a given category
+for category in category_counts:
+    category_html = category_template.render(posts=list(zip(posts_metadata, posts_urls)), categories=category)
+    category_file_path = 'html/categories/{title}.html'.format(title=category)
     with open(category_file_path, 'w') as file:
         file.write(category_html)
 

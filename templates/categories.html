@@ -1,12 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
-{% for tag in tags %}
+{% for category in categories %}
 <div class="category">
-    <a href="categories/{{tag}}.html">
+    <a href="categories/{{category}}.html">
         <div class="category-name">
-            {{tag}}
+            {{category}}
         </div>
-        <div class="category-count">related posts: {{tags[tag]}}</div>
+        <div class="category-count">related posts: {{categories[category]}}</div>
     </a>
 </div>
 {% endfor %}
