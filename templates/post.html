@@ -1,28 +1,16 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="content">
-    <div class="home-page-post-summary">
-        <div class="home-page-post-summary-image-container">
-            <img class="home-page-post-summary-image" src="{{post.thumbnail}}"></img>
-        </div>
-        <div class="home-page-post-summary-text"> 
-            <div class="home-page-post-summary-title">
-                {{post.title}}
-            </div> 
-            <div class="home-page-post-summary-body">
-                {{post.summary}}
-            </div>
-            <div class="home-page-post-summary-metadata">
-                <span class="home-page-post-summary-metadata-date">{{post.date}}</span>
-                <span class="home-page-post-summary-metadata-tags">
-                    <span class="home-page-post-summary-metadata-tag">Travel</span>
-                    <span class="home-page-post-summary-metadata-tag">Hiking</span>
-                    <span class="home-page-post-summary-metadata-tag">Animals</span>
-                </span>
-            </div>
-            <div class="home-page-post-summary-post">
-                {{ post.content }}
-            </div>
-        </div>
-</div>
+<div class="post">
+    <h1 class="post-title">{{post.title}}</h1>
+    <div class="post-metadata">
+        <span class="post-metadata-date">{{post.date}}</span>
+        {% set list_of_tags = post.tags.split(",") %}
+        {% for tag in list_of_tags %}
+        <a href = "categories/{{tag}}"><span class="post-metadata-tags">{{tag}}</span></a>
+        {% endfor %}
+    </div>
+    <div class="post-content">
+        {{ post.content }}
+    </div>
+</div><!--post-->
 {% endblock %}

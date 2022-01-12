@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+{% for tag in tags %}
+<div class="category">
+    <a href="categories/{{tag}}.html">
+        <div class="category-name">
+            {{tag}}
+        </div>
+        <div class="category-count">related posts: {{tags[tag]}}</div>
+    </a>
+</div>
+{% endfor %}
+{% endblock %}

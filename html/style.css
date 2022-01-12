@@ -11,113 +11,77 @@
 }
 
 
-/* Basic Site Layout */
+/* Basic layout sections */
 
 html {
-    -webkit-text-size-adjust: 100%;
+    height: 100%; /* Necessary for sticky footer */
 }
-
 
 body {
+    height: 100%; /* Necessary for sticky footer */
+    display: grid; /* Necessary for sticky footer */
+    grid-template-rows: auto auto 1fr auto; /* Necessary for sticky footer */
+    margin: 0; /* Remove default margin on body */
     font-family: "EBGaramond";
-    margin: 0;
-}
-
-.site-container {
-    height: 100vh;
-    max-width: 700px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto 1fr auto;
-    grid-template-areas:
-        'header'
-        'nav'
-        'content'
-        'footer';
+    text-size-adjust: none; /* Keeps text size the same in both portrait and landscape on mobile devices  */
 }
 
 header {
-    margin-top: 30px;
-    grid-area: header;
     text-align: center;
     text-transform: uppercase;
     font-size: 26px;
     letter-spacing: 8px;
-    font-weight: lighter;
-    margin-bottom: 10px;
 }
-
-    .header-kerning-r {
-        letter-spacing: 5px;
-    }
 
 nav {
-    grid-area: nav;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 2.5px;
     font-size: 14px;
-    font-weight: lighter;
+    letter-spacing: 2.5px;
 }
 
-.content {
-    grid-area: content;
+nav img {
+    height: 12px;
+}
+
+.main {
+    max-width: 700px; /* Determines the width of the main content area */
+    margin: 0 auto 0 auto; /* Keeps the main content area centered */
 }
 
 footer {
     text-align: center;
-    text-transform: uppercase;
-    font-weight: lighter;
-    grid-area: footer;
-    padding-bottom: 20px;
-    border-top: solid 1px lightgray;
-    margin-top:10px;
-    padding-top: 20px;
 }
 
+/* Home page content styling */
+
 .home-page-post-summary {
-    border-top: solid 1px lightgray;
-    padding-top: 30px;
-    margin-top:30px;
     text-align: center;
 }
 
-
 .home-page-post-summary-image {
-    max-width: 100%;
-}
-
-.home-page-post-summary-text {
-    margin: 0 8px 0 8px;
+    max-width: 100%; /* Ensures that image is constrained to .main max-width, but allows image to shrink for smaller screens */
 }
 
 
-.home-page-post-summary-title {
-    margin-top: 5px;
-    font-size: 48px;
-    font-weight: lighter;
-    line-height: 52px;
-    margin-bottom: 10px;
+/* Post page content styling */
+
+.post {
+    text-align: left;
 }
 
-.home-page-post-summary-body {
-    font-size: 18px;
-    margin-bottom: 10px;
+
+/* Categories page content styling */
+
+.category {
+    text-align: center;
 }
 
-.home-page-post-summary-metadata {
-    text-transform: uppercase;
-    font-size: 12px;
-    color: gray;
-    margin-bottom: 40px;
+/* Persnickety details */
+
+.header-kerning-r {
+    letter-spacing: 5px; /* Fixes kerning issue with letter 'r' in 'circus factions' */
 }
 
-.home-page-post-summary-metadata-date {
-    margin-right: 5px;
-}
 
-.home-page-post-summary-metadata-tag {
-    margin-right: 5px;
-}
 
