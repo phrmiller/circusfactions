@@ -1,28 +1,25 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="content">
-    {% for post in posts %}
-    <div class="home-page-post-summary">
-        <div class="home-page-post-summary-image-container">
-            <a href="{{post[1]}}">
+{% for post in posts[:3] %}
+<div class="home-page-post-summary">
+    <a href={{post[1]}}>
+        <div class="home-page-post-summary-clickable-area">
+            <div class="home-page-post-summary-image">
                 <img class="home-page-post-summary-image" src="{{post[0].thumbnail}}"></img>
-            </a>
-        </div>
-        <div class="home-page-post-summary-text"> 
+            </div>
             <div class="home-page-post-summary-title">
-                <a href="{{post[1]}}">{{post[0].title}}</a>
-            </div> 
-            <div class="home-page-post-summary-body">
-                <a href="{{post[1]}}">{{post[0].summary}}</a>
+                {{post[0].title}}
             </div>
-            <div class="home-page-post-summary-metadata">
-                <span class="home-page-post-summary-metadata-date">{{post[0].date}}</span>
-                {% set list_of_tags = post[0].tags.split(",") %}
-                {% for tag in list_of_tags %}
-                <a href = "{{tag}}"><span class="home-page-post-summary-metadata-tags">{{tag}}</span></a>
-                {% endfor %}
-            </div>
-        </div>
+            <div class="home-page-post-summary-snippet">{{post[0].summary}}</div>
+        </div><!--home-page-post-summary-clickable-area-->
+    </a>
+    <div class="home-page-post-summary-metadata">
+        <span class="home-page-post-summary-metadata-date">{{post[0].date}}</span>
+        {% set list_of_tags = post[0].tags.split(",") %}
+        {% for tag in list_of_tags %}
+        <a href = "categories/{{tag}}.html"><span class="home-page-post-summary-metadata-tags">{{tag}}</span></a>
         {% endfor %}
-</div>
+    </div><!--home-page-post-summary-metadata-->
+</div><!--home-page-post-summary-->
+{% endfor %}
 {% endblock %}
