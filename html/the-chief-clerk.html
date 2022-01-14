@@ -19,31 +19,82 @@
     <a href="/about.html"><span>about</span></a>
 </nav>
 
-    <div class="main">
-        
+    <div class="content">
+        <div class="main">
+            
 <div class="post">
-    <h1 class="post-title">The chief clerk</h1>
-    <div class="post-metadata">
-        <span class="post-metadata-date">2021-12-09 00:00:00</span>
+    <div class="post_title">The Chief Clerk Says She Wants Apples with Her Salad</div>
+    <div class="post_metadata">
+        <span class="post_metadata_date">December 9, 2021&nbsp;&mdash;&nbsp;</span>
         
         
-        <a href="/categories/business.html"><span class="post-metadata-categories">business</span></a>
-        
-        <a href="/categories/life.html"><span class="post-metadata-categories">life</span></a>
-        
-    </div>
-    <div class="post-content">
-        <p>So why did his sister not go and join the others? She had probably only just got up and had not even begun to get dressed. And why was she crying? Was it because he had not got up, and had not let the chief clerk in, because he was in danger of losing his job and if that happened his boss would once more pursue their parents with the same demands as before? There was no need to worry about things like that yet. Gregor was still there and had not the slightest intention of abandoning his family. For the time being he just lay there on the carpet, and no-one who knew the condition he was in would seriously have expected him to let the chief clerk in. It was only a minor discourtesy, and a suitable excuse could easily be found for it later on, it was not something for which Gregor could be sacked on the spot. And it seemed to Gregor much more sensible to leave him now in peace instead of disturbing him with talking at him and crying. But the others didn’t know what was happening, they were worried, that would excuse their behaviour.</p>
+            
+                
+                <a href = "/categories/alchemy.html"><span class="post_metadata_categories">alchemy</span></a> / 
+                
+                <a href = "/categories/alcohol.html"><span class="post_metadata_categories">alcohol</span></a> / 
+                
+                <a href = "/categories/books.html"><span class="post_metadata_categories">books</span></a> / 
+                
+                <a href = "/categories/business.html"><span class="post_metadata_categories">business</span></a> / 
+                
+                
+                <a href = "/categories/science.html"><span class="post_metadata_categories">science</span></a>
+                
+            
+    </div><!--end post_metadata-->
+    <div class="post_content"><p>Command is one of my favorite patterns. Most large programs I write, games or
+otherwise, end up using it somewhere. When I've used it in the right place, it's
+neatly untangled some really gnarly code. For such a swell pattern, the Gang of
+Four has a predictably abstruse description:</p>
 
-<p>The chief clerk now raised his voice, “Mr. Samsa”, he called to him, “what is wrong? You barricade yourself in your room, give us no more than yes or no for an answer, you are causing serious and unnecessary concern to your parents and you fail—and I mention this just by the way—you fail to carry out your business duties in a way that is quite unheard of. I’m speaking here on behalf of your parents and of your employer, and really must request a clear and immediate explanation. I am astonished, quite astonished. I thought I knew you as a calm and sensible person, and now you suddenly seem to be showing off with peculiar whims. This morning, your employer did suggest a possible reason for your failure to appear, it’s true—it had to do with the money that was recently entrusted to you—but I came near to giving him my word of honour that that could not be the right explanation. But now that I see your incomprehensible stubbornness I no longer feel any wish whatsoever to intercede on your behalf. And nor is your position all that secure. I had originally intended to say all this to you in private, but since you cause me to waste my time here for no good reason I don’t see why your parents should not also learn of it. Your turnover has been very unsatisfactory of late; I grant you that it’s not the time of year to do especially good business, we recognise that; but there simply is no time of year to do no business at all, Mr. Samsa, we cannot allow there to be.”</p>
+<blockquote>
+  <p>Encapsulate a request as an object, thereby letting users parameterize clients
+  with different requests, queue or log requests, and support undoable
+  operations.</p>
+</blockquote>
 
-<p>“But Sir”, called Gregor, beside himself and forgetting all else in the excitement, “I’ll open up immediately, just a moment. I’m slightly unwell, an attack of dizziness, I haven’t been able to get up. I’m still in bed now. I’m quite fresh again now, though. I’m just getting out of bed. Just a moment. Be patient! It’s not quite as easy as I’d thought. I’m quite alright now, though. It’s shocking, what can suddenly happen to a person! I was quite alright last night, my parents know about it, perhaps better than me, I had a small symptom of it last night already. They must have noticed it. I don’t know why I didn’t let you know at work! But you always think you can get over an illness without staying at home. Please, don’t make my parents suffer! There’s no basis for any of the accusations you’re making; nobody’s ever said a word to me about any of these things. Maybe you haven’t read the latest contracts I sent in. I’ll set off with the eight o’clock train, as well, these few hours of rest have given me strength. You don’t need to wait, sir; I’ll be in the office soon after you, and please be so good as to tell that to the boss and recommend me to him!”</p>
+<p>I think we can all agree that that's a terrible sentence. First of all, it
+mangles whatever metaphor it's trying to establish. Outside of the weird world
+of software where words can mean anything, a "client" is a <em>person</em> -- someone
+you do business with. Last I checked, human beings can't be "parameterized".</p>
 
-<p>And while Gregor gushed out these words, hardly knowing what he was saying, he made his way over to the chest of drawers—this was easily done, probably because of the practise he had already had in bed—where he now tried to get himself upright. He really did want to open the door, really did want to let them see him and to speak with the chief clerk; the others were being so insistent, and he was curious to learn what they would say when they caught sight of him. If they were shocked then it would no longer be Gregor’s responsibility and he could rest. If, however, they took everything calmly he would still have no reason to be upset, and if he hurried he really could be at the station for eight o’clock. The first few times he tried to climb up on the smooth chest of drawers he just slid down again, but he finally gave himself one last swing and stood there upright; the lower part of his body was in serious pain but he no longer gave any attention to it. Now he let himself fall against the back of a nearby chair and held tightly to the edges of it with his little legs. By now he had also calmed down, and kept quiet so that he could listen to what the chief clerk was saying.</p>
+<p>Then, the rest of that sentence is just a list of stuff you could maybe possibly
+use the pattern for. Not very illuminating unless your use case happens to be in
+that list. <em>My</em> pithy tagline for the Command pattern is:</p>
 
-    </div>
-</div><!--post-->
+<p><strong>A command is a <em><span name="latin">reified</span> method call</em>.</strong></p>
 
+<aside name="latin">
+"Reify" comes from the Latin "res", for "thing", with the English suffix
+"&ndash;fy". So it basically means "thingify", which, honestly, would be a more
+fun word to use.
+</aside>
+
+<p>Both terms mean taking some <span name="reflection"><em>concept</em></span> and turning
+it into a piece of <em>data</em> -- an object -- that you can stick in a variable, pass
+to a function, etc. So by saying the Command pattern is a "reified method call",
+what I mean is that it's a method call wrapped in an object.</p>
+
+<p>That sounds a lot like a "callback", "first-class function", "function pointer",
+"closure", or "partially applied function" depending on which language you're
+coming from, and indeed those are all in the same ballpark. The Gang of Four
+later says:</p>
+
+<blockquote>
+  <p>Commands are an object-oriented replacement for callbacks.</p>
+</blockquote>
+
+<p>That would be a better slugline for the pattern than the one they chose.</p>
+
+<p>But all of this is abstract and nebulous. I like to start chapters with
+something concrete, and I blew that. To make up for it, from here on out it's
+all examples where commands are a brilliant fit.</p>
+</div>
+</div><!--end post-->
+
+        </div>
+        <div class="sidebar"></div>
     </div>
     
 <footer>
@@ -51,8 +102,7 @@
     <a href="/all.html">all</a>
     <a href="/categories.html">categories</a>
     <a href="/about.html">about</a>
-    <br />
-    copyright &copy; 2022 circus factions
+    <span>copyright &copy; 2022 circus factions</span>
 </footer>
 
 </body>

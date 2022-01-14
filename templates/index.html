@@ -2,24 +2,30 @@
 {% block content %}
 {% for post in posts[:10] %}
 <div class="home_page_post_summary">
-    <a href=/{{post[1]}}>
-        <div class="home_page_post_summary_clickable_area">
-            <div class="home_page_post_summary_image">
-                <img class="home_page_post_summary_image" src="{{post[0].image}}" alt="{{post[0].image_alt_text}}"></img>
-            </div>
-            <div class="home_page_post_summary_title">
-                {{post[0].title}}
-            </div>
-            <div class="home_page_post_summary_summary">{{post[0].summary}}</div>
-        </div><!--home-page-post-summary-clickable-area-->
-    </a>
-    <div class="home_page_post_summary_metadata">
-        <span class="home_page_post_summary_metadata_date">{{post[0].date.strftime('%B %-d, %Y')}}</span>
-        {% set list_of_categories = post[0].categories.split(","" ") %}
-        {% for category in list_of_categories %}
-        <a href = "/categories/{{category}}.html"><span class="home_page_post_summary_metadata_categories">{{category}}</span></a>
-        {% endfor %}
-    </div><!--home-page-post-summary-metadata-->
-</div><!--home-page-post-summary-->
+    <div class="home_page_post_summary_image">
+        <a href=/{{post[1]}}><img class="home_page_post_summary_image" src="{{post[0].image}}" alt="{{post[0].image_alt_text}}"></img></a>    
+    </div>
+    <div class="home_page_post_summary_text">
+        <div class="home_page_post_summary_title"><a href=/{{post[1]}}>{{post[0].title}}</a></div>
+        <div class="home_page_post_summary_summary"><a href=/{{post[1]}}>{{post[0].summary}}</a></div>
+        <div class="home_page_post_summary_metadata">
+            <span class="home_page_post_summary_metadata_date">{{post[0].date.strftime('%B %-d, %Y')}}&nbsp;&mdash;&nbsp;</span>
+            {% set list_of_categories = post[0].categories.split(","" ") %}
+            {% set list_of_categories = list_of_categories|sort %}
+            {% if list_of_categories|length == 1 %}
+                {% for category in list_of_categories %}
+                    <a href = "/categories/{{category}}.html"><span class="home_page_post_summary_metadata_categories">{{category}}</span></a>
+                {% endfor %}
+            {% else %}
+                {% for category in list_of_categories[0 : list_of_categories|length-1] %}
+                <a href = "/categories/{{category}}.html"><span class="home_page_post_summary_metadata_categories">{{category}}</span></a> / 
+                {% endfor %}
+                {% for category in list_of_categories[list_of_categories|length-1 : list_of_categories|length] %}
+                <a href = "/categories/{{category}}.html"><span class="home_page_post_summary_metadata_categories">{{category}}</span></a>
+                {% endfor %}
+            {% endif %}
+        </div><!--end home-page-post-summary-metadata-->
+    </div><!--end home-page-post-summary-text-->
+</div><!--end home-page-post-summary-->
 {% endfor %}
 {% endblock %}

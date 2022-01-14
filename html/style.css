@@ -17,6 +17,10 @@ html {
     height: 100%; /* Necessary for sticky footer. */
 }
 
+body, h1, h2, h3, h4, p, blockquote, code, ul, ol, dl, dd, img {
+    margin: 0;
+}
+
 body {
     height: 100%; /* Necessary for sticky footer. */
     display: grid; /* Necessary for sticky footer. */
@@ -24,6 +28,7 @@ body {
     margin: 0; /* Remove default margin on body. */
     font-family: "EBGaramond";
     text-size-adjust: none; /* Keeps text size the same in both portrait and landscape on mobile devices  */
+    color: rgba(0,0,0,0.87)
 }
 
 header {
@@ -37,10 +42,10 @@ header {
 }
 
 nav {
-    margin: 0 0 40px 0;
+    margin: 0 0 60px 0;
     padding: 0 0 30px 0;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 14px;
     letter-spacing: 3px;
     text-align: center;
     text-transform: uppercase;
@@ -51,9 +56,22 @@ nav a {
     margin: 0 10px 0 10px;
 }
 
-.main {
-    max-width: 700px; /* Determines the width of the main content area */
+.content {
+    max-width: 1000px; /* Determines the width of the main content area */
     margin: 0 auto 0 auto; /* Keeps the main content area centered */
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main {
+    flex: 1 1 400px;
+}
+
+.sidebar {
+    flex-basis: 250px;
+    background-color: lightgreen;
+    margin-left: 40px;
 }
 
 footer {
@@ -67,17 +85,37 @@ footer {
     border-top: 1px solid lightgray;
 }
 
-footer a {
-    margin: 0 10px 0 10px;
+footer a, footer span {
+    margin: 0 0 0 15px;
+    white-space: nowrap;
+}
+
+@media only screen and (min-width: 690px) {
+    aside {
+        display: block;
+        position: absolute;
+        width: 230px;
+        right: 0;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .home_page_post_summary_text {
+        margin: 0 20px 0 20px;
+    }
 }
 
 
 
 /* Links */
 
-a, a:visited, a:hover, a:active {
+a, a:visited, a:active {
     text-decoration: none;
     color: inherit;
+}
+
+a:hover {
+    color: rgba(0,0,0,0.6);
 }
 
 
@@ -88,33 +126,73 @@ a, a:visited, a:hover, a:active {
 
 .home_page_post_summary {
     text-align: center;
-    margin: 0 0 60px 0;
+    margin: 0 0 75px 0;
 }
 
 .home_page_post_summary_image {
     max-width: 100%; /* Ensures that image is constrained to .main max-width, but allows image to shrink for smaller screens */
+    margin: 0 0 3px 0;
+}
+
+.home_page_post_summary_text {
 }
 
 .home_page_post_summary_title {
     text-align: left;
-    font-size: 48px;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+    margin: 0 0 10px 0;
 }
 
 .home_page_post_summary_summary {
     text-align: left;
     font-size: 18px;
+    margin: 0 0 8px 0;
 }
 
 .home_page_post_summary_metadata {
     text-align: left;
+    font-size: 14px;
+    color: rgba(0,0,0,0.4);
+    text-transform: uppercase;
 }
 
-
+.home_page_post_summary_metadata_categories {
+    font-size: 16px;
+    text-transform: capitalize;
+}
 
 /* Post page content styling */
 
 .post {
     text-align: left;
+    margin: 0 20px 0 20px;
+}
+
+.post_title {
+    font-size: 54px;
+    font-weight: 600;
+    line-height: 66px;
+    margin: 0 0 15px 0;
+}
+
+.post_metadata {
+    text-align: left;
+    font-size: 18px;
+    color: rgba(0,0,0,0.4);
+    text-transform: uppercase;
+    margin: 0 0 50px 0;
+
+}
+
+.post_metadata_categories {
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+.post_content {
+    font-size: 22px;
 }
 
 
