@@ -1,0 +1,395 @@
+/* Author: Circus Factions */
+/* Last Update: 2022-01-15 */
+
+
+/**********************************************************
+Load Fonts
+***********************************************************/
+
+@font-face {
+    font-family: "EB-Garamond";
+    src: url("/fonts/EBGaramond-VariableFont_wght.ttf"); /* Downloaded from Google Fonts. */ 
+}
+
+@font-face {
+    font-family: "EB-Garamond-Italic";
+    src: url("/fonts/EBGaramond-Italic-VariableFont_wght.ttf"); /* Downloaded from Google Fonts. */
+}
+
+@font-face {
+    font-family: "Oswald";
+    src: url("/fonts/Oswald-VariableFont_wght.ttf"); /* Downloaded from Google Fonts. */
+}
+
+@font-face {
+    font-family: "Playfair-Display";
+    src: url("/fonts/PlayfairDisplay-VariableFont_wght.ttf"); /* Downloaded from Google Fonts. */
+}
+
+@font-face {
+    font-family: "Playfair-Display-Italic";
+    src: url("/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf"); /* Downloaded from Google Fonts. */
+}
+
+//////////////////////////////////////////////////////////
+// Variables
+//////////////////////////////////////////////////////////
+
+//Fonts
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$extra-bold: 800;
+$font-stack: EB-Garamond, Serif;
+@mixin site-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 48px;
+    font-weight: $regular;
+    letter-spacing: 8px;
+    line-height: 60px;
+}
+@mixin nav {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: $regular;
+    letter-spacing: 4px;
+}
+@mixin copyright {
+    font-size: 12px;
+    color: $medium-gray;    
+}
+@mixin h1 {
+    font-family: "Playfair-Display";
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+}
+@mixin body {
+    font-family: Playfair-Display;
+    font-size: 18px;
+    font-weight: $regular;
+}
+@mixin metadata-date {
+    font-family: "Playfair-Display";
+    font-size: 17px;
+    font-weight: $medium;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    color: $medium-gray;
+}
+@mixin metadata-categories {
+    font-family: "Playfair-Display";
+    font-size: 17px;
+    font-weight: 450;
+    text-transform: capitalize;
+    color: $medium-gray;
+}
+
+// Colors
+$black: rgba(0,0,0,0.87);
+$dark-gray: rgba(0,0,0,.40);
+$medium-gray: rgba(0,0,0,.30);
+$light-gray: rgba(0,0,0,.10);
+
+// Borders
+$light-border: 1px solid $light-gray;
+
+// Elements and Selectors
+
+
+// Dimensions
+$site-width: 1500px;
+$home-content-width: 1200px; // How wide do you want the home page content to be?
+$post-content-width: 900px;
+
+
+/**********************************************************
+Global Element Styles
+***********************************************************/
+
+q {
+    quotes: "“" "”" "‘" "’";
+  }
+  q::before {
+      content: open-quote;
+  }
+  q::after {
+      content: close-quote;
+  }
+
+html, body, h1, h2, h3, h4, p, blockquote, code, ul, ol, img {
+    margin: 0;
+    padding: 0; /* Get rid of default element styles. */
+}
+
+a, a:active, a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: $dark-gray;
+}
+
+img {
+    max-width: 100%;
+}
+
+html, body {
+    height: 100%; /* Necessary for sticky footer. */
+}
+
+body {
+    display: grid; /* Necessary for sticky footer. */
+    grid-template-rows: auto auto 1fr auto; /* Necessary for sticky footer; each page includes a '*-content' div for third row. */
+    font-family: $font-stack;
+    color: $black;
+    text-size-adjust: none; /* Keeps text size the same in both portrait and landscape on mobile devices. */
+    -webkit-text-size-adjust: none; /* Keeps text size the same in both portrait and landscape on mobile devices. */
+}
+
+header {
+    margin: 40px 0 10px 0;
+    @include site-title();
+    
+    .header-kerning-r {
+        letter-spacing: 3px; /* Fixes kerning issue with letter 'r' in site title. */
+    }
+}
+
+nav, footer {
+    @include nav();
+}
+
+nav {
+    max-width: $site-width;
+    width: 100%;
+    padding: 0 0 20px 0;
+    margin: 0 auto 0 auto;
+    border-bottom: $light-border;
+}
+
+.content {
+    max-width: $site-width;
+    margin: 40px auto 40px auto;
+}
+
+footer {
+    max-width: $site-width;
+    width: 100%;
+    margin: 0 auto 0 auto;
+    padding: 20px 0 20px 0;
+    border-top: $light-border;
+
+    .footer-copyright {
+        margin: 5px 0 0 0;
+        @include copyright();
+    }
+}
+
+.post-title {
+    @include h1();
+}
+
+.post-summary {
+    @include body();
+}
+
+.post-metadata {
+    color: $medium-gray;
+
+    .post-metadata-date {
+        @include metadata-date();
+    }
+
+    .post-metadata-categories {
+        @include metadata-categories();
+    }
+}
+
+p {
+    &:not(:last-child) {
+        margin: 0 0 10px 0;
+    }
+}
+
+
+
+/**********************************************************
+Home Element Styles
+***********************************************************/
+
+.post-summaries {
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    justify-content: space-between;
+
+    @media only screen and (max-width: $site-width) {
+        & {
+            padding: 0 40px 0 40px;
+        }
+    }
+
+    @media only screen and (max-width: 819px) {
+        & {
+            display: block;
+            margin: 40 0 40 0;
+            padding: 0 0 0 0;
+        }
+
+        & .post-summary-container:not(:last-child) {
+            margin: 0 0 60px 0;
+        }
+    }
+
+    .post-summary-container {
+        //flex: 1 1 350px;
+        //max-width: 700px;
+        //margin: 0 auto 0 auto;
+
+        &:not(:last-child) {
+            //margin: 0 auto 0 auto;
+        }
+
+        .image-container {
+            margin: 0;
+        }
+    
+        .text-container {
+            //text-align: center;
+            @media only screen and (max-width: $home-content-width) {
+                & {
+                    margin: 0 15px 0 15px;
+                }
+            }
+        
+            .post-title {
+                margin: 0 0 5px 0;
+                //text-transform: uppercase;
+            }
+        
+            .post-summary {
+                //display: none;
+                text-align: left;
+                margin: 0 0 5px 0;
+            }
+    
+            .post-metadata {
+                
+                .post-metadata-date {
+                    margin: 0;
+                }
+    
+                .post-metadata-categories {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+
+/**********************************************************
+Post Element Styles
+***********************************************************/
+
+.post-content {
+    max-width: $post-content-width;
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(20px, 175px) minmax(335px,550px) minmax(20px, 175px);
+
+    .left-side-space {
+        min-width: 20px;
+        max-width: 200px;
+    }
+    
+    .post-container {
+
+        .post-title {
+            margin: 0 0 10px 0;
+        }
+
+        .post-metadata {
+            margin: 0 0 30px 0;
+            
+            .post-metadata-date {
+                margin: 0;
+            }
+
+            .post-metadata-categories {
+                margin: 0;
+            }
+        }
+
+        .post {
+            @include body();
+        
+            @media only screen and (min-width: 890px) {
+                aside {
+                    display: block;
+                    position: absolute;
+                    width: 150px;
+                    right: 0;
+                    font-size: 16px;
+                    line-height: 19px;
+                    margin: 0 0 0 10px;
+                    padding: 0 0 0 5px;
+                    border-left: 3px solid $light-gray;
+                    color: $dark-gray;
+                }
+            }
+            
+            img {
+                margin: 10px 0 10px 0;
+            }
+        }
+    }
+
+    .right-side-space {
+        min-width: 20px;
+        max-width: 200px;
+    }
+}
+
+/** LIGHTBOX MARKUP **/
+
+.lightbox {
+    /* Default to hidden */
+    display: none;
+  
+    /* Overlay entire screen */
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    /* A bit of padding around image */
+    padding: 1em;
+  
+    /* Translucent background */
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Unhide the lightbox when it's the target */
+  .lightbox:target {
+    display: block;
+  }
+  
+  .lightbox span {
+    /* Full width and height */
+    display: block;
+    width: 100%;
+    height: 100%;
+  
+    /* Size and position background image */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }

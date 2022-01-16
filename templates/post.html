@@ -1,24 +1,28 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="post">
-    <div class="post_title">{{post.title}}</div>
-    <div class="post_metadata">
-        <span class="post_metadata_date">{{post.date.strftime('%B %-d, %Y')}}&nbsp;&mdash;&nbsp;</span>
-        {% set list_of_categories = post.categories.split(","" ") %}
-        {% set list_of_categories = list_of_categories|sort %}
-            {% if list_of_categories|length == 1 %}
-                {% for category in list_of_categories %}
-                    <a href = "/categories/{{category}}.html"><span class="post_metadata_categories">{{category}}</span></a>
-                {% endfor %}
-            {% else %}
-                {% for category in list_of_categories[0 : list_of_categories|length-1] %}
-                <a href = "/categories/{{category}}.html"><span class="post_metadata_categories">{{category}}</span></a> / 
-                {% endfor %}
-                {% for category in list_of_categories[list_of_categories|length-1 : list_of_categories|length] %}
-                <a href = "/categories/{{category}}.html"><span class="post_metadata_categories">{{category}}</span></a>
-                {% endfor %}
-            {% endif %}
-    </div><!--end post_metadata-->
-    <div class="post_content">{{ post.content }}</div>
-</div><!--end post-->
+<div class="post-content">
+    <div class="left-side-space"></div>
+    <div class="post-container">
+        <div class="post-title">{{post.title}}</div>
+        <div class="post-metadata">
+            <span class="post-metadata-date">{{post.date.strftime('%B %-d, %Y')}}&nbsp;&mdash;&nbsp;</span>
+            {% set list_of_categories = post.categories.split(","" ") %}
+            {% set list_of_categories = list_of_categories|sort %}
+                {% if list_of_categories|length == 1 %}
+                    {% for category in list_of_categories %}
+                    <span class="post-metadata-categories"><a href = "/categories/{{category}}.html">{{category}}</a></span>
+                    {% endfor %}
+                {% else %}
+                    {% for category in list_of_categories[0 : list_of_categories|length-1] %}
+                    <span class="post-metadata-categories"><a href = "/categories/{{category}}.html">{{category}}</a>&nbsp;&nbsp;/&nbsp;&nbsp;</span> 
+                    {% endfor %}
+                    {% for category in list_of_categories[list_of_categories|length-1 : list_of_categories|length] %}
+                    <span class="post-metadata-categories"><a href = "/categories/{{category}}.html">{{category}}</a></span>
+                    {% endfor %}
+                {% endif %}
+        </div><!--end post_metadata-->
+        <div class="post">{{ post.content }}</div>
+    </div><!--end post-container-->
+    <div class="right-side-space"></div>
+</div><!--end post-content-->
 {% endblock %}

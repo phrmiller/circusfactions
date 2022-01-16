@@ -1,31 +1,17 @@
 {% extends "layout.html" %}
 {% block content %}
-{% for post in posts[:10] %}
-<div class="home_page_post_summary">
-    <div class="home_page_post_summary_image">
-        <a href=/{{post[1]}}><img class="home_page_post_summary_image" src="{{post[0].image}}" alt="{{post[0].image_alt_text}}"></img></a>    
-    </div>
-    <div class="home_page_post_summary_text">
-        <div class="home_page_post_summary_title"><a href=/{{post[1]}}>{{post[0].title}}</a></div>
-        <div class="home_page_post_summary_summary"><a href=/{{post[1]}}>{{post[0].summary}}</a></div>
-        <div class="home_page_post_summary_metadata">
-            <span class="home_page_post_summary_metadata_date">{{post[0].date.strftime('%B %-d, %Y')}}&nbsp;&mdash;&nbsp;</span>
-            {% set list_of_categories = post[0].categories.split(","" ") %}
-            {% set list_of_categories = list_of_categories|sort %}
-            {% if list_of_categories|length == 1 %}
-                {% for category in list_of_categories %}
-                    <a href = "/categories/{{category}}.html"><span class="home_page_post_summary_metadata_categories">{{category}}</span></a>
-                {% endfor %}
-            {% else %}
-                {% for category in list_of_categories[0 : list_of_categories|length-1] %}
-                <a href = "/categories/{{category}}.html"><span class="home_page_post_summary_metadata_categories">{{category}}</span></a> / 
-                {% endfor %}
-                {% for category in list_of_categories[list_of_categories|length-1 : list_of_categories|length] %}
-                <a href = "/categories/{{category}}.html"><span class="home_page_post_summary_metadata_categories">{{category}}</span></a>
-                {% endfor %}
-            {% endif %}
-        </div><!--end home-page-post-summary-metadata-->
-    </div><!--end home-page-post-summary-text-->
-</div><!--end home-page-post-summary-->
-{% endfor %}
+<div class="post-summaries">
+    {% for post in posts[:10] %}
+    <div class="post-summary-container">
+        <div class="image-container">
+            <a href=/{{post[1]}}><img src="{{post[0].image}}" alt="{{post[0].image_alt_text}}"></img></a>    
+        </div><!--end image-container-->
+        <div class="text-container">
+            <div class="post-title"><a href=/{{post[1]}}>{{post[0].title}}</a></div>
+            <div class="post-summary"><a href=/{{post[1]}}>{{post[0].summary}}</a></div>
+            {% include 'post-metadata.html' %}
+        </div><!--end text-container-->
+    </div><!--end post-summary-container-->
+    {% endfor %}
+</div><!--end post-summaries-->
 {% endblock %}

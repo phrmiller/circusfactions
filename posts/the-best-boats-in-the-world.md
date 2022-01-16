@@ -1,10 +1,10 @@
 ---
-title: The Chief Clerk Says She Wants Apples with Her Salad
-date: 2021-12-09
-categories: business, alcohol, books, alchemy, science
-image: images/clerk.jpeg
-image_alt_text: A woman standing at a cashier stand.
-summary: And while Gregor gushed out these words, hardly knowing what he was saying, he made his way over to the chest of drawers—this was easily done, probably because of the practise he had already had in bed—where he now tried to get himself upright.
+title: The Best Boats in the World
+date: 2021-12-15
+categories: business, alcohol, books, alchemy, science, chew-toys
+image: images/boats.jpeg
+image_alt_text: Boats!
+summary: That sounds a lot like a "callback", "first-class function", "function pointer", "closure", or "partially applied function".
 ---
 
 Command is one of my favorite patterns. Most large programs I write, games or
