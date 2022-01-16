@@ -130,14 +130,14 @@ footer .footer-copyright {
 }
 
 .post-title {
-  font-family: "Playfair-Display";
+  font-family: "Playfair-Display-Italic";
   font-weight: 700;
   font-size: 32px;
   line-height: 39px;
 }
 
 .post-summary {
-  font-family: Playfair-Display;
+  font-family: EB-Garmond;
   font-size: 18px;
   font-weight: 400;
 }
@@ -192,7 +192,7 @@ Home Element Styles
 .post-summaries .post-summary-container .image-container {
   margin: 0;
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 819px) {
   .post-summaries .post-summary-container .text-container {
     margin: 0 15px 0 15px;
   }
@@ -237,7 +237,7 @@ Post Element Styles
   margin: 0;
 }
 .post-content .post-container .post {
-  font-family: Playfair-Display;
+  font-family: EB-Garmond;
   font-size: 18px;
   font-weight: 400;
 }

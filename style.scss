@@ -62,13 +62,13 @@ $font-stack: EB-Garamond, Serif;
     color: $medium-gray;    
 }
 @mixin h1 {
-    font-family: "Playfair-Display";
+    font-family: "Playfair-Display-Italic";
     font-weight: 700;
     font-size: 32px;
     line-height: 39px;
 }
 @mixin body {
-    font-family: Playfair-Display;
+    font-family: EB-Garmond;
     font-size: 18px;
     font-weight: $regular;
 }
@@ -261,7 +261,7 @@ Home Element Styles
     
         .text-container {
             //text-align: center;
-            @media only screen and (max-width: $home-content-width) {
+            @media only screen and (max-width: 819px) {
                 & {
                     margin: 0 15px 0 15px;
                 }
