@@ -139,7 +139,7 @@ nav a {
 
 .content {
   max-width: 1500px;
-  margin: 40px auto 40px auto;
+  margin: 60px auto 60px auto;
 }
 
 footer {
@@ -178,8 +178,9 @@ footer .footer-copyright {
 }
 
 .post-summary {
+  font-family: Cormorant-Garamond-Medium;
   font-size: 20px;
-  line-height: 30px;
+  line-height: 33px;
   font-weight: 400;
 }
 
@@ -187,15 +188,15 @@ footer .footer-copyright {
   color: rgba(0, 0, 0, 0.3);
 }
 .post-metadata .post-metadata-date {
-  font-family: Cormorant-Garamond-Regular-Italic;
-  font-size: 18px;
+  font-family: Cormorant-Garamond-Medium;
+  font-size: 19px;
   font-weight: 200;
   text-transform: capitalize;
   color: rgba(0, 0, 0, 0.3);
 }
 .post-metadata .post-metadata-categories {
-  font-family: Cormorant-Garamond-Regular-Italic;
-  font-size: 18px;
+  font-family: Cormorant-Garamond-Medium;
+  font-size: 19px;
   font-weight: 200;
   text-transform: capitalize;
   color: rgba(0, 0, 0, 0.3);
@@ -224,7 +225,7 @@ Home Element Styles
 ***********************************************************/
 .post-summaries {
   display: grid;
-  grid-gap: 40px;
+  grid-gap: 60px;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   justify-content: space-between;
 }
@@ -252,11 +253,11 @@ Home Element Styles
   }
 }
 .post-summaries .post-summary-container .text-container .post-title {
-  margin: 0 0 5px 0;
+  margin: 10px 0 20px 0;
 }
 .post-summaries .post-summary-container .text-container .post-summary {
   text-align: left;
-  margin: 0 0 10px 0;
+  margin: 0 0 20px 0;
 }
 .post-summaries .post-summary-container .text-container .post-metadata .post-metadata-date {
   margin: 0;
@@ -291,8 +292,9 @@ Post Element Styles
   margin: 0;
 }
 .post-content .post-container .post {
+  font-family: Cormorant-Garamond-Medium;
   font-size: 20px;
-  line-height: 30px;
+  line-height: 33px;
   font-weight: 400;
 }
 @media only screen and (min-width: 890px) {

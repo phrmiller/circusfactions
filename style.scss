@@ -106,20 +106,21 @@ $site-wide-font-stack: Cormorant-Garamond-Regular, Serif;
     line-height: 60px;
 }
 @mixin font-body {
+    font-family: Cormorant-Garamond-Medium;
     font-size: 20px;
-    line-height: 30px;
+    line-height: 33px;
     font-weight: $regular;
 }
 @mixin font-metadata-date {
-    font-family: Cormorant-Garamond-Regular-Italic;
-    font-size: 18px;
+    font-family: Cormorant-Garamond-Medium;
+    font-size: 19px;
     font-weight: 200;
     text-transform:capitalize;
     color: $medium-gray;
 }
 @mixin font-metadata-categories {
-    font-family: Cormorant-Garamond-Regular-Italic;
-    font-size: 18px;
+    font-family: Cormorant-Garamond-Medium;
+    font-size: 19px;
     font-weight: 200;
     text-transform: capitalize;
     color: $medium-gray;
@@ -204,7 +205,7 @@ nav {
 
 .content {
     max-width: $site-width;
-    margin: 40px auto 40px auto;
+    margin: 60px auto 60px auto;
 }
 
 footer {
@@ -289,7 +290,7 @@ Home Element Styles
 
 .post-summaries {
     display: grid;
-    grid-gap: 40px;
+    grid-gap: 60px;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     justify-content: space-between;
 
@@ -333,14 +334,14 @@ Home Element Styles
             }
         
             .post-title {
-                margin: 0 0 5px 0;
+                margin: 10px 0 20px 0;
                 //text-transform: uppercase;
             }
         
             .post-summary {
                 //display: none;
                 text-align: left;
-                margin: 0 0 10px 0;
+                margin: 0 0 20px 0;
             }
     
             .post-metadata {
