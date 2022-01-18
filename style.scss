@@ -85,19 +85,19 @@ $site-wide-font-stack: Cormorant-Garamond-Regular, Serif;
     text-transform: uppercase;
     font-size: 24px;
     font-weight: $regular;
-    letter-spacing: 4px;
+    letter-spacing: 8px;
     line-height: 29px;
 }
 @mixin font-nav {
     font-family: EB-Garamond;
-    font-weight: 500;
+    font-weight: 400;
     text-align: center;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 16px;
     letter-spacing: 4px;
 }
 @mixin font-copyright {
-    font-size: 12px;
+    font-size: 16px;
     color: $medium-gray;    
 }
 @mixin font-h1 {
@@ -173,9 +173,9 @@ header {
     margin: 20px 0 10px 0;
     @include font-site-title-large();
     
-    .header-kerning-r {
-        letter-spacing: 3px; /* Fixes kerning issue with letter 'r' in site title. */
-    }
+    //.header-kerning-r {
+    //    letter-spacing: 3px; /* Fixes kerning issue with letter 'r' in site title. */
+    //}
 
     @media only screen and (max-width: 450px)  {
         @include font-site-title-small();     
@@ -199,7 +199,7 @@ nav {
         margin: 0 12px 0 12px;       
     }
 
-    @media only screen and (max-width: 310px) {
+    @media only screen and (max-width: 330px) {
         display: grid;
         grid-template-rows: auto auto auto;        
     }
@@ -216,6 +216,10 @@ footer {
     padding: 20px 0 20px 0;
     margin: 0 auto 0 auto;
     border-top: $light-border;
+
+    span {
+        display: inline-block;
+    }
 
     .footer-nav {
         display: flex;

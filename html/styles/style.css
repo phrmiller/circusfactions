@@ -94,27 +94,23 @@ header {
   letter-spacing: 8px;
   line-height: 42px;
 }
-header .header-kerning-r {
-  letter-spacing: 3px;
-  /* Fixes kerning issue with letter 'r' in site title. */
-}
 @media only screen and (max-width: 450px) {
   header {
     text-align: center;
     text-transform: uppercase;
     font-size: 24px;
     font-weight: 400;
-    letter-spacing: 4px;
+    letter-spacing: 8px;
     line-height: 29px;
   }
 }
 
 nav, footer {
   font-family: EB-Garamond;
-  font-weight: 500;
+  font-weight: 400;
   text-align: center;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 4px;
 }
 
@@ -130,7 +126,7 @@ nav {
 nav a {
   margin: 0 12px 0 12px;
 }
-@media only screen and (max-width: 310px) {
+@media only screen and (max-width: 330px) {
   nav {
     display: grid;
     grid-template-rows: auto auto auto;
@@ -148,6 +144,9 @@ footer {
   padding: 20px 0 20px 0;
   margin: 0 auto 0 auto;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+footer span {
+  display: inline-block;
 }
 footer .footer-nav {
   display: flex;
@@ -167,7 +166,7 @@ footer .footer-nav a {
 }
 footer .footer-copyright {
   margin: 5px 0 0 0;
-  font-size: 12px;
+  font-size: 16px;
   color: rgba(0, 0, 0, 0.4);
 }
 
