@@ -106,21 +106,23 @@ $site-wide-font-stack: Cormorant-Garamond-Regular, Serif;
     line-height: 60px;
 }
 @mixin font-body {
-    font-family: Cormorant-Garamond-Medium;
-    font-size: 20px;
-    line-height: 33px;
+    font-family: EB-Garamond;
+    font-size: 22px;
+    line-height: 34px;
     font-weight: $regular;
 }
 @mixin font-metadata-date {
-    font-family: Cormorant-Garamond-Medium;
-    font-size: 19px;
+    font-family: EB-Garamond;
+    font-size: 20px;
+    line-height: 30px;
     font-weight: 200;
     text-transform:capitalize;
     color: $medium-gray;
 }
 @mixin font-metadata-categories {
-    font-family: Cormorant-Garamond-Medium;
-    font-size: 19px;
+    font-family: EB-Garamond;
+    font-size: 20px;
+    line-height: 30px;
     font-weight: 200;
     text-transform: capitalize;
     color: $medium-gray;
@@ -128,8 +130,8 @@ $site-wide-font-stack: Cormorant-Garamond-Regular, Serif;
 
 // Colors
 $black: rgba(0,0,0,0.87);
-$dark-gray: rgba(0,0,0,.40);
-$medium-gray: rgba(0,0,0,.30);
+$dark-gray: rgba(0,0,0,.60);
+$medium-gray: rgba(0,0,0,.40);
 $light-gray: rgba(0,0,0,.10);
 
 // Borders

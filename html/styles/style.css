@@ -168,7 +168,7 @@ footer .footer-nav a {
 footer .footer-copyright {
   margin: 5px 0 0 0;
   font-size: 12px;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .post-title {
@@ -178,28 +178,30 @@ footer .footer-copyright {
 }
 
 .post-summary {
-  font-family: Cormorant-Garamond-Medium;
-  font-size: 20px;
-  line-height: 33px;
+  font-family: EB-Garamond;
+  font-size: 22px;
+  line-height: 34px;
   font-weight: 400;
 }
 
 .post-metadata {
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.4);
 }
 .post-metadata .post-metadata-date {
-  font-family: Cormorant-Garamond-Medium;
-  font-size: 19px;
+  font-family: EB-Garamond;
+  font-size: 20px;
+  line-height: 30px;
   font-weight: 200;
   text-transform: capitalize;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.4);
 }
 .post-metadata .post-metadata-categories {
-  font-family: Cormorant-Garamond-Medium;
-  font-size: 19px;
+  font-family: EB-Garamond;
+  font-size: 20px;
+  line-height: 30px;
   font-weight: 200;
   text-transform: capitalize;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.4);
 }
 
 p:not(:last-child) {
@@ -213,7 +215,7 @@ a, a:active, a:visited {
 }
 
 a:hover {
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 img {
@@ -292,9 +294,9 @@ Post Element Styles
   margin: 0;
 }
 .post-content .post-container .post {
-  font-family: Cormorant-Garamond-Medium;
-  font-size: 20px;
-  line-height: 33px;
+  font-family: EB-Garamond;
+  font-size: 22px;
+  line-height: 34px;
   font-weight: 400;
 }
 @media only screen and (min-width: 890px) {
@@ -308,7 +310,7 @@ Post Element Styles
     margin: 0 0 0 10px;
     padding: 0 0 0 5px;
     border-left: 3px solid rgba(0, 0, 0, 0.1);
-    color: rgba(0, 0, 0, 0.4);
+    color: rgba(0, 0, 0, 0.6);
   }
 }
 .post-content .post-container .post img {
