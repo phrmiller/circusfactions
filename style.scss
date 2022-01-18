@@ -31,6 +31,36 @@ Load Fonts
     src: url("/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf"); /* Downloaded from Google Fonts. */
 }
 
+@font-face {
+    font-family: "Cormorant-Garamond-Light";
+    src: url("/fonts/CormorantGaramond-Light.ttf"); /* Downloaded from Google Fonts. */
+}
+
+@font-face {
+    font-family: "Cormorant-Garamond-Regular";
+    src: url("/fonts/CormorantGaramond-Regular.ttf"); /* Downloaded from Google Fonts. */
+}
+
+@font-face {
+    font-family: "Cormorant-Garamond-Medium";
+    src: url("/fonts/CormorantGaramond-Medium.ttf"); /* Downloaded from Google Fonts. */
+}
+
+@font-face {
+    font-family: "Cormorant-Garamond-Light-Italic";
+    src: url("/fonts/CormorantGaramond-LightItalic.ttf"); /* Downloaded from Google Fonts. */
+}
+
+@font-face {
+    font-family: "Cormorant-Garamond-Regular-Italic";
+    src: url("/fonts/CormorantGaramond-Italic.ttf"); /* Downloaded from Google Fonts. */
+}
+
+@font-face {
+    font-family: "Cormorant-Garamond-Medium-Italic";
+    src: url("/fonts/CormorantGaramond-MediumItalic.ttf"); /* Downloaded from Google Fonts. */
+}
+
 //////////////////////////////////////////////////////////
 // Variables
 //////////////////////////////////////////////////////////
@@ -41,49 +71,56 @@ $medium: 500;
 $semi-bold: 600;
 $bold: 700;
 $extra-bold: 800;
-$font-stack: EB-Garamond, Serif;
-@mixin site-title {
+$site-wide-font-stack: Cormorant-Garamond-Regular, Serif;
+@mixin font-site-title-large {
     text-align: center;
     text-transform: uppercase;
-    font-size: 48px;
+    font-size: 36px;
     font-weight: $regular;
     letter-spacing: 8px;
-    line-height: 60px;
+    line-height: 42px;
 }
-@mixin nav {
+@mixin font-site-title-small {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: $regular;
+    letter-spacing: 4px;
+    line-height: 29px;
+}
+@mixin font-nav {
+    font-family: Cormorant-Garamond-Medium;
     text-align: center;
     text-transform: uppercase;
     font-size: 14px;
     font-weight: $regular;
     letter-spacing: 4px;
 }
-@mixin copyright {
+@mixin font-copyright {
     font-size: 12px;
     color: $medium-gray;    
 }
-@mixin h1 {
-    font-family: "Playfair-Display-Italic";
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 39px;
+@mixin font-h1 {
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 60px;
 }
-@mixin body {
-    font-family: EB-Garmond;
-    font-size: 18px;
+@mixin font-body {
+    font-size: 20px;
+    line-height: 30px;
     font-weight: $regular;
 }
-@mixin metadata-date {
-    font-family: "Playfair-Display";
-    font-size: 17px;
-    font-weight: $medium;
-    text-transform: lowercase;
-    font-variant: small-caps;
+@mixin font-metadata-date {
+    font-family: Cormorant-Garamond-Regular-Italic;
+    font-size: 18px;
+    font-weight: 200;
+    text-transform:capitalize;
     color: $medium-gray;
 }
-@mixin metadata-categories {
-    font-family: "Playfair-Display";
-    font-size: 17px;
-    font-weight: 450;
+@mixin font-metadata-categories {
+    font-family: Cormorant-Garamond-Regular-Italic;
+    font-size: 18px;
+    font-weight: 200;
     text-transform: capitalize;
     color: $medium-gray;
 }
@@ -110,21 +147,124 @@ $post-content-width: 900px;
 Global Element Styles
 ***********************************************************/
 
-q {
-    quotes: "“" "”" "‘" "’";
-  }
-  q::before {
-      content: open-quote;
-  }
-  q::after {
-      content: close-quote;
-  }
-
+/* Get rid of default element styles. */
 html, body, h1, h2, h3, h4, p, blockquote, code, ul, ol, img {
     margin: 0;
-    padding: 0; /* Get rid of default element styles. */
+    padding: 0;
 }
 
+html, body {
+    height: 100%; /* Necessary for sticky footer. */
+}
+
+body {
+    display: grid; /* Necessary for sticky footer. */
+    grid-template-rows: auto auto 1fr auto; /* Necessary for sticky footer. */
+    font-family: $site-wide-font-stack;
+    color: $black;
+    text-size-adjust: none; /* Keeps text size the same in both portrait and landscape on mobile devices. */
+    -webkit-text-size-adjust: none; /* Keeps text size the same in both portrait and landscape on mobile devices. */
+}
+
+header {
+    margin: 20px 0 10px 0;
+    @include font-site-title-large();
+    
+    .header-kerning-r {
+        letter-spacing: 3px; /* Fixes kerning issue with letter 'r' in site title. */
+    }
+
+    @media only screen and (max-width: 450px)  {
+        @include font-site-title-small();     
+    }
+}
+
+nav, footer {
+    @include font-nav();
+}
+
+nav {
+    max-width: $site-width;
+    width: 100%;
+    padding: 0 0 20px 0;
+    margin: 0 auto 0 auto;
+    border-bottom: $light-border;
+    display: flex;
+    justify-content: center;
+   
+    a {
+        margin: 0 12px 0 12px;       
+    }
+
+    @media only screen and (max-width: 310px) {
+        display: grid;
+        grid-template-rows: auto auto auto;        
+    }
+}
+
+.content {
+    max-width: $site-width;
+    margin: 40px auto 40px auto;
+}
+
+footer {
+    max-width: $site-width;
+    width: 100%;
+    padding: 20px 0 20px 0;
+    margin: 0 auto 0 auto;
+    border-top: $light-border;
+
+    .footer-nav {
+        display: flex;
+        justify-content: center;
+    
+        a {
+            margin: 0 12px 0 12px;
+        }
+
+        @media only screen and (max-width: 410px) {
+            display: grid;
+            grid-template-rows: auto auto auto auto;
+            
+            a {
+                margin: 0 0 5px 0;
+            }
+        }
+    }
+
+    .footer-copyright {
+        margin: 5px 0 0 0;
+        @include font-copyright();
+    }
+}
+
+.post-title {
+    @include font-h1();
+}
+
+.post-summary {
+    @include font-body();
+}
+
+.post-metadata {
+    color: $medium-gray;
+
+    .post-metadata-date {
+        @include font-metadata-date();
+    }
+
+    .post-metadata-categories {
+        @include font-metadata-categories();
+    }
+}
+
+p {
+    &:not(:last-child) {
+        margin: 0 0 10px 0;
+    }
+}
+
+/* Links */
 a, a:active, a:visited {
     text-decoration: none;
     color: inherit;
@@ -138,83 +278,8 @@ img {
     max-width: 100%;
 }
 
-html, body {
-    height: 100%; /* Necessary for sticky footer. */
-}
 
-body {
-    display: grid; /* Necessary for sticky footer. */
-    grid-template-rows: auto auto 1fr auto; /* Necessary for sticky footer; each page includes a '*-content' div for third row. */
-    font-family: $font-stack;
-    color: $black;
-    text-size-adjust: none; /* Keeps text size the same in both portrait and landscape on mobile devices. */
-    -webkit-text-size-adjust: none; /* Keeps text size the same in both portrait and landscape on mobile devices. */
-}
 
-header {
-    margin: 40px 0 10px 0;
-    @include site-title();
-    
-    .header-kerning-r {
-        letter-spacing: 3px; /* Fixes kerning issue with letter 'r' in site title. */
-    }
-}
-
-nav, footer {
-    @include nav();
-}
-
-nav {
-    max-width: $site-width;
-    width: 100%;
-    padding: 0 0 20px 0;
-    margin: 0 auto 0 auto;
-    border-bottom: $light-border;
-}
-
-.content {
-    max-width: $site-width;
-    margin: 40px auto 40px auto;
-}
-
-footer {
-    max-width: $site-width;
-    width: 100%;
-    margin: 0 auto 0 auto;
-    padding: 20px 0 20px 0;
-    border-top: $light-border;
-
-    .footer-copyright {
-        margin: 5px 0 0 0;
-        @include copyright();
-    }
-}
-
-.post-title {
-    @include h1();
-}
-
-.post-summary {
-    @include body();
-}
-
-.post-metadata {
-    color: $medium-gray;
-
-    .post-metadata-date {
-        @include metadata-date();
-    }
-
-    .post-metadata-categories {
-        @include metadata-categories();
-    }
-}
-
-p {
-    &:not(:last-child) {
-        margin: 0 0 10px 0;
-    }
-}
 
 
 
@@ -275,7 +340,7 @@ Home Element Styles
             .post-summary {
                 //display: none;
                 text-align: left;
-                margin: 0 0 5px 0;
+                margin: 0 0 10px 0;
             }
     
             .post-metadata {
@@ -327,7 +392,7 @@ Post Element Styles
         }
 
         .post {
-            @include body();
+            @include font-body();
         
             @media only screen and (min-width: 890px) {
                 aside {

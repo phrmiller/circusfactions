@@ -4,7 +4,7 @@ date: 2021-12-15
 categories: business, alcohol, books, alchemy, science, chew-toys
 image: images/boats.jpeg
 image_alt_text: Boats!
-summary: That sounds a lot like a "callback", "first-class function", "function pointer", "closure", or "partially applied function".
+summary: That sounds a lot like a “callback“, “first-class function“, “function pointer“, “closure“, or “partially applied function“.
 ---
 
 Command is one of my favorite patterns. Most large programs I write, games or
