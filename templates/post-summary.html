@@ -1,0 +1,12 @@
+{% block content %}
+<div class="post-summary-container">
+    <div class="image-container">
+        <a href=/{{post.replace('.md','.html')}}><img src="/{{posts[post].metadata['image']}}" alt="{{posts[post].metadata['image_alt_text']}}"></img></a>    
+    </div><!--end image-container-->
+    <div class="text-container">
+        <div class="post-title"><a href=/{{post.replace('.md','.html')}}>{{posts[post].metadata['title']}}</a></div>
+        <div class="post-summary"><a href=/{{post.replace('.md','.html')}}>{{posts[post].metadata['summary']}}</a></div>
+        {% include 'post-metadata.html' %}
+    </div><!--end text-container-->
+</div><!--end post-summary-container-->
+{% endblock %}

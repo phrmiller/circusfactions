@@ -7,7 +7,7 @@ from markdown2 import markdown
 
 # PREP TASKS #
 
-# Before creating new pages, delete old pages.
+# Delete old pages.
 old_files = glob.glob('html/*.html*') + glob.glob('html/categories/*.html*')
 for f in old_files:
     try:
@@ -15,13 +15,13 @@ for f in old_files:
     except OSError as e:
         print("Error: %s : %s" % (f, e.strerror))
 
-# Generate new CSS file from SCSS file.
+# Generate CSS from SCSS.
 os.system("sass style.scss ./html/styles/style.css")
 
 
-# GATHER POSTS #
+# GATHER POSTS, CATEGORY, AND ABOUT INFO #
 
-# Create empty dictionary 'posts'. Use markdown2 to populate this dictionary with each post.
+# Use markdown2 to load each post into 'posts'.
 posts = {}
 for markdown_post in os.listdir('posts'):
     if markdown_post.endswith('.md'): # Avoids an issues with Mac OS's ds_store file.
@@ -29,41 +29,39 @@ for markdown_post in os.listdir('posts'):
         with open(file_path, 'r') as file:
             posts[markdown_post] = markdown(file.read(), extras=['metadata'])
 
-# Convert the date metadata for each post to a datetime.
+# Convert 'posts' 'date' metadata to datetime.
 for post in posts:
     posts[post].metadata['date'] = datetime.strptime(posts[post].metadata['date'], '%Y-%m-%d')
 
-# Sort the posts by date.
+# Sort 'posts' by 'date'.
 posts = {
     post: posts[post] for post in sorted(posts, key=lambda post: posts[post].metadata['date'], reverse=True)
 }
 
-
-# ESTABLISH ENTITIES THAT WILL BE PASSED TO JINJA TEMPLATES #
-
-# Create a new list 'posts_metadata', where each item is the dictionary of metadata from each post in the 'posts' dictionary.
-posts_metadata = [posts[post].metadata for post in posts]
-
-# Create a new list 'posts_urls', where each item is the post name and '.md' is replaced with '.html'.
-posts_urls = [post.replace('.md','.html') for post in posts]
-
-# Create a new dictionary for category counts, sort based on count.
-category_counts = {}
+# Gather 'all_categories' from posts metadata.
 all_categories = []
 for post in posts:
     all_categories.extend(posts[post].metadata['categories'].split(","" "))
+
+# Gather 'category_counts' for each category in 'all_categories'.
+category_counts = {}
 for i in all_categories:
     category_counts[i] = category_counts.get(i, 0) + 1
+
+# Sort 'category_counts' by count.
 category_counts = {
     category: category_counts[category] for category in sorted(category_counts, key=lambda category: category_counts[category], reverse=True)
 }
 
+# Use markdown2 to load 'about.md' to 'about_content'. 
+with open('./templates/about.md', 'r') as file:
+    about_content = markdown(file.read())
 
-# LOAD JINJA TEMPLATES #
+
+# LOAD JINJA TEMPLATES
 
 env = Environment(loader=FileSystemLoader('templates'))
 index_template = env.get_template('index.html')
-index2_template = env.get_template('index2.html')
 post_template = env.get_template('post.html')
 all_template = env.get_template('all.html')
 categories_template = env.get_template('categories.html')
@@ -71,47 +69,38 @@ category_template = env.get_template('category.html')
 about_template = env.get_template('about.html')
 
 
-# BUILD PAGES #
+# BUILD PAGES
 
-# Render another index page for a test...
-index2_html = index2_template.render(posts=posts)
-with open('html/index2.html', 'w') as file:
-    file.write(index2_html)
-
-# Render Index page.
-index_html = index_template.render(posts=list(zip(posts_metadata, posts_urls,)))
+# Build 'index.html' page.
+index_html = index_template.render(posts=posts)
 with open('html/index.html', 'w') as file:
     file.write(index_html)
-# Render each Post page.
+
+# Build each 'post' page.
 for post in posts:
-    post_metadata = posts[post].metadata
-    post_data = {
-        'content': posts[post],
-        'title': post_metadata['title'],
-        'date': post_metadata['date'],
-        'categories': post_metadata['categories']
-    }
-    post_html = post_template.render(post=post_data)
+    post_html = post_template.render(posts=posts, post=post)
     post_file_path = 'html/{title}.html'.format(title=post.replace('.md',''))
     with open(post_file_path, 'w') as file:
         file.write(post_html)
-# Render All page.
-all_html = all_template.render(posts=list(zip(posts_metadata, posts_urls)))
+
+# Build 'all' page.
+all_html = all_template.render(posts=posts)
 with open('html/all.html', 'w') as file:
     file.write(all_html)
-# Render Categories page
+
+# Build 'categories' page.
 categories_html = categories_template.render(categories=category_counts)
 with open('html/categories.html', 'w') as file:
     file.write(categories_html)
-# Render each Category page
+
+# Build each 'category' page.
 for category in category_counts:
-    category_html = category_template.render(posts=list(zip(posts_metadata, posts_urls)), categories=category)
+    category_html = category_template.render(posts=posts, category=category)
     category_file_path = 'html/categories/{title}.html'.format(title=category)
     with open(category_file_path, 'w') as file:
         file.write(category_html)
-# Render About page
-with open('./templates/about.md', 'r') as file:
-    about_content = markdown(file.read())
+
+# Build 'about' page.
 about_html = about_template.render(about=about_content)
 with open('html/about.html', 'w') as file:
     file.write(about_html)

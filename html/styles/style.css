@@ -87,6 +87,7 @@ body {
 
 header {
   margin: 20px 0 10px 0;
+  font-family: EB-Garamond;
   text-align: center;
   text-transform: uppercase;
   font-size: 36px;
@@ -94,20 +95,25 @@ header {
   letter-spacing: 8px;
   line-height: 42px;
 }
+header .header-kerning-r {
+  letter-spacing: 4px;
+  /* Fixes kerning issue with letter 'r' in site title. */
+}
 @media only screen and (max-width: 450px) {
   header {
+    font-family: EB-Garamnond;
     text-align: center;
     text-transform: uppercase;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 400;
-    letter-spacing: 8px;
-    line-height: 29px;
+    letter-spacing: 6px;
+    line-height: 36px;
   }
 }
 
 nav, footer {
   font-family: EB-Garamond;
-  font-weight: 400;
+  font-weight: 500;
   text-align: center;
   text-transform: uppercase;
   font-size: 16px;
@@ -135,7 +141,7 @@ nav a {
 
 .content {
   max-width: 1500px;
-  margin: 60px auto 60px auto;
+  margin: 50px auto 50px auto;
 }
 
 footer {
@@ -171,6 +177,7 @@ footer .footer-copyright {
 }
 
 .post-title {
+  font-family: EB-Garamond;
   font-weight: 400;
   font-size: 50px;
   line-height: 60px;
@@ -224,46 +231,49 @@ img {
 /**********************************************************
 Home Element Styles
 ***********************************************************/
-.post-summaries {
+.home-post-summaries {
   display: grid;
-  grid-gap: 60px;
+  grid-gap: 50px;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   justify-content: space-between;
 }
 @media only screen and (max-width: 1500px) {
-  .post-summaries {
+  .home-post-summaries {
     padding: 0 40px 0 40px;
   }
 }
 @media only screen and (max-width: 819px) {
-  .post-summaries {
+  .home-post-summaries {
     display: block;
     margin: 40 0 40 0;
     padding: 0 0 0 0;
   }
-  .post-summaries .post-summary-container:not(:last-child) {
+  .home-post-summaries .post-summary-container:not(:last-child) {
     margin: 0 0 60px 0;
   }
 }
-.post-summaries .post-summary-container .image-container {
+.home-post-summaries .post-summary-container:not(:last-child) {
+  margin: 0 auto 0 auto;
+}
+.home-post-summaries .post-summary-container .image-container {
   margin: 0;
 }
 @media only screen and (max-width: 819px) {
-  .post-summaries .post-summary-container .text-container {
+  .home-post-summaries .post-summary-container .text-container {
     margin: 0 15px 0 15px;
   }
 }
-.post-summaries .post-summary-container .text-container .post-title {
-  margin: 10px 0 20px 0;
+.home-post-summaries .post-summary-container .text-container .post-title {
+  margin: 5px 0 10px 0;
 }
-.post-summaries .post-summary-container .text-container .post-summary {
+.home-post-summaries .post-summary-container .text-container .post-summary {
   text-align: left;
-  margin: 0 0 20px 0;
+  margin: 0 0 10px 0;
 }
-.post-summaries .post-summary-container .text-container .post-metadata .post-metadata-date {
+.home-post-summaries .post-summary-container .text-container .post-metadata .post-metadata-date {
   margin: 0;
 }
-.post-summaries .post-summary-container .text-container .post-metadata .post-metadata-categories {
+.home-post-summaries .post-summary-container .text-container .post-metadata .post-metadata-categories {
   margin: 0;
 }
 
@@ -271,14 +281,20 @@ Home Element Styles
 Post Element Styles
 ***********************************************************/
 .post-content {
-  max-width: 900px;
+  max-width: 1500px;
   position: relative;
   display: grid;
-  grid-template-columns: minmax(20px, 175px) minmax(335px, 550px) minmax(20px, 175px);
+  grid-template-columns: minmax(1px, 250px) minmax(auto, 700px) 250px;
 }
-.post-content .left-side-space {
-  min-width: 20px;
-  max-width: 200px;
+@media only screen and (max-width: 1200px) {
+  .post-content {
+    grid-template-columns: 20px minmax(auto, 700px) 250px;
+  }
+}
+@media only screen and (max-width: 740px) {
+  .post-content {
+    grid-template-columns: 20px auto 20px;
+  }
 }
 .post-content .post-container .post-title {
   margin: 0 0 10px 0;
@@ -298,15 +314,15 @@ Post Element Styles
   line-height: 34px;
   font-weight: 400;
 }
-@media only screen and (min-width: 890px) {
+@media only screen and (min-width: 740px) {
   .post-content .post-container .post aside {
     display: block;
     position: absolute;
-    width: 150px;
+    width: 185px;
     right: 0;
-    font-size: 16px;
-    line-height: 19px;
-    margin: 0 0 0 10px;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0 20px 0 10px;
     padding: 0 0 0 5px;
     border-left: 3px solid rgba(0, 0, 0, 0.1);
     color: rgba(0, 0, 0, 0.6);
@@ -314,10 +330,6 @@ Post Element Styles
 }
 .post-content .post-container .post img {
   margin: 10px 0 10px 0;
-}
-.post-content .right-side-space {
-  min-width: 20px;
-  max-width: 200px;
 }
 
 /** LIGHTBOX MARKUP **/

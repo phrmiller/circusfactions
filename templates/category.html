@@ -1,28 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="category-title">
-    <h1>{{categories}}</h1>
-</div>
-{% for post in posts %}
-{% if categories in post[0].categories %}
-<div class="category-page-post-summary">
-    <a href="/{{post[1]}}">
-        <div class="category-page-post-summary-clickable-area">
-            <div class="category-page-post-summary-title">
-                {{post[0].title}}
-            </div>
-            <div class="category-page-post-summary-snippet">{{post[0].summary}}</div>
-        </div><!--all-page-post-summary-clickable-area-->
-    </a>
-    <div class="category-page-post-summary-metadata">
-        <span class="category-page-post-summary-metadata-date">{{post[0].date}}</span>
-        {% set list_of_categories = post[0].categories.split(","" ") %}
-        {% for category in list_of_categories %}
-        <a href = "/categories/{{category}}.html"><span class="category-page-post-summary-metadata-categories">{{category}}</span></a>
-        {% endfor %}
-    </div><!--all-page-post-summary-metadata-->
-</div><!--all-page-post-summary-->
-{% else %}
-{% endif %}
-{% endfor %}
+<div class="category-post-summaries">
+    <h1>{{category}}</h1>
+    {% for post in posts %}
+    {% if category in posts[post].metadata['categories'] %}
+    {% include 'post-summary.html' %}
+    {% endif %}
+    {% endfor %}
+</div><!--end category-post-summaries-->
 {% endblock %}

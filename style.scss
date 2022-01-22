@@ -73,6 +73,7 @@ $bold: 700;
 $extra-bold: 800;
 $site-wide-font-stack: Cormorant-Garamond-Regular, Serif;
 @mixin font-site-title-large {
+    font-family: EB-Garamond;
     text-align: center;
     text-transform: uppercase;
     font-size: 36px;
@@ -81,16 +82,17 @@ $site-wide-font-stack: Cormorant-Garamond-Regular, Serif;
     line-height: 42px;
 }
 @mixin font-site-title-small {
+    font-family: EB-Garamnond;
     text-align: center;
     text-transform: uppercase;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: $regular;
-    letter-spacing: 8px;
-    line-height: 29px;
+    letter-spacing: 6px;
+    line-height: 36px;
 }
 @mixin font-nav {
     font-family: EB-Garamond;
-    font-weight: 400;
+    font-weight: 500;
     text-align: center;
     text-transform: uppercase;
     font-size: 16px;
@@ -101,6 +103,7 @@ $site-wide-font-stack: Cormorant-Garamond-Regular, Serif;
     color: $medium-gray;    
 }
 @mixin font-h1 {
+    font-family: EB-Garamond;
     font-weight: 400;
     font-size: 50px;
     line-height: 60px;
@@ -142,7 +145,6 @@ $light-border: 1px solid $light-gray;
 
 // Dimensions
 $site-width: 1500px;
-$home-content-width: 1200px; // How wide do you want the home page content to be?
 $post-content-width: 900px;
 
 
@@ -173,9 +175,9 @@ header {
     margin: 20px 0 10px 0;
     @include font-site-title-large();
     
-    //.header-kerning-r {
-    //    letter-spacing: 3px; /* Fixes kerning issue with letter 'r' in site title. */
-    //}
+    .header-kerning-r {
+        letter-spacing: 4px; /* Fixes kerning issue with letter 'r' in site title. */
+    }
 
     @media only screen and (max-width: 450px)  {
         @include font-site-title-small();     
@@ -207,7 +209,7 @@ nav {
 
 .content {
     max-width: $site-width;
-    margin: 60px auto 60px auto;
+    margin: 50px auto 50px auto;
 }
 
 footer {
@@ -294,9 +296,9 @@ img {
 Home Element Styles
 ***********************************************************/
 
-.post-summaries {
+.home-post-summaries {
     display: grid;
-    grid-gap: 60px;
+    grid-gap: 50px;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     justify-content: space-between;
 
@@ -324,7 +326,7 @@ Home Element Styles
         //margin: 0 auto 0 auto;
 
         &:not(:last-child) {
-            //margin: 0 auto 0 auto;
+            margin: 0 auto 0 auto;
         }
 
         .image-container {
@@ -340,14 +342,14 @@ Home Element Styles
             }
         
             .post-title {
-                margin: 10px 0 20px 0;
+                margin: 5px 0 10px 0;
                 //text-transform: uppercase;
             }
         
             .post-summary {
                 //display: none;
                 text-align: left;
-                margin: 0 0 20px 0;
+                margin: 0 0 10px 0;
             }
     
             .post-metadata {
@@ -370,16 +372,23 @@ Post Element Styles
 ***********************************************************/
 
 .post-content {
-    max-width: $post-content-width;
+    max-width: $site-width;
     position: relative;
     display: grid;
-    grid-template-columns: minmax(20px, 175px) minmax(335px,550px) minmax(20px, 175px);
+    grid-template-columns: minmax(1px,250px) minmax(auto, 700px) 250px;
 
-    .left-side-space {
-        min-width: 20px;
-        max-width: 200px;
+    @media only screen and (max-width: 1200px) {
+        & {
+            grid-template-columns: 20px minmax(auto, 700px) 250px;
+        }
     }
-    
+
+    @media only screen and (max-width: 740px) {
+        & {
+            grid-template-columns: 20px auto 20px;
+        }
+    }
+
     .post-container {
 
         .post-title {
@@ -401,15 +410,15 @@ Post Element Styles
         .post {
             @include font-body();
         
-            @media only screen and (min-width: 890px) {
+            @media only screen and (min-width: 740px) {
                 aside {
                     display: block;
                     position: absolute;
-                    width: 150px;
+                    width: 185px;
                     right: 0;
-                    font-size: 16px;
-                    line-height: 19px;
-                    margin: 0 0 0 10px;
+                    font-size: 18px;
+                    line-height: 24px;
+                    margin: 0 20px 0 10px;
                     padding: 0 0 0 5px;
                     border-left: 3px solid $light-gray;
                     color: $dark-gray;
@@ -420,11 +429,6 @@ Post Element Styles
                 margin: 10px 0 10px 0;
             }
         }
-    }
-
-    .right-side-space {
-        min-width: 20px;
-        max-width: 200px;
     }
 }
 
