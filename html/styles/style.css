@@ -77,7 +77,7 @@ body {
   /* Necessary for sticky footer. */
   grid-template-rows: auto auto 1fr auto;
   /* Necessary for sticky footer. */
-  font-family: Cormorant-Garamond-Regular, Serif;
+  font-family: EB-Garamond, Serif;
   color: rgba(0, 0, 0, 0.87);
   text-size-adjust: none;
   /* Keeps text size the same in both portrait and landscape on mobile devices. */
@@ -229,54 +229,188 @@ img {
 }
 
 /**********************************************************
-Home Element Styles
+Home Page
 ***********************************************************/
 .home-post-summaries {
   display: grid;
   grid-gap: 50px;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(325.5px, 700px));
   justify-content: space-between;
 }
 @media only screen and (max-width: 1500px) {
   .home-post-summaries {
-    padding: 0 40px 0 40px;
+    padding: 0 50px 0 50px;
   }
 }
-@media only screen and (max-width: 819px) {
+@media only screen and (max-width: 820px) {
   .home-post-summaries {
-    display: block;
-    margin: 40 0 40 0;
+    margin: 0 0 0 0;
     padding: 0 0 0 0;
   }
-  .home-post-summaries .post-summary-container:not(:last-child) {
-    margin: 0 0 60px 0;
+}
+@media only screen and (max-width: 700px) {
+  .home-post-summaries {
+    grid-template-columns: minmax(1px, 700px);
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
   }
 }
-.home-post-summaries .post-summary-container:not(:last-child) {
-  margin: 0 auto 0 auto;
-}
-.home-post-summaries .post-summary-container .image-container {
-  margin: 0;
-}
-@media only screen and (max-width: 819px) {
-  .home-post-summaries .post-summary-container .text-container {
+@media only screen and (max-width: 820px) {
+  .home-post-summaries .text-container {
     margin: 0 15px 0 15px;
   }
 }
-.home-post-summaries .post-summary-container .text-container .post-title {
+.home-post-summaries .post-title {
   margin: 5px 0 10px 0;
 }
-.home-post-summaries .post-summary-container .text-container .post-summary {
+.home-post-summaries .post-summary {
   text-align: left;
   margin: 0 0 10px 0;
 }
-.home-post-summaries .post-summary-container .text-container .post-metadata .post-metadata-date {
+.home-post-summaries .post-metadata .post-metadata-date {
   margin: 0;
 }
-.home-post-summaries .post-summary-container .text-container .post-metadata .post-metadata-categories {
+.home-post-summaries .post-metadata .post-metadata-categories {
   margin: 0;
 }
 
+/**********************************************************
+All Page
+***********************************************************/
+.all-header {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 30px 0;
+  font-size: 30px;
+  letter-spacing: 12px;
+}
+
+.all-post-summaries {
+  display: grid;
+  grid-gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(325.5px, 700px));
+  justify-content: space-between;
+}
+@media only screen and (max-width: 1500px) {
+  .all-post-summaries {
+    padding: 0 50px 0 50px;
+  }
+}
+@media only screen and (max-width: 820px) {
+  .all-post-summaries {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .all-post-summaries {
+    grid-template-columns: minmax(1px, 700px);
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+  }
+}
+@media only screen and (max-width: 820px) {
+  .all-post-summaries .text-container {
+    margin: 0 15px 0 15px;
+  }
+}
+.all-post-summaries .post-title {
+  margin: 5px 0 10px 0;
+}
+.all-post-summaries .post-summary {
+  text-align: left;
+  margin: 0 0 10px 0;
+}
+.all-post-summaries .post-metadata .post-metadata-date {
+  margin: 0;
+}
+.all-post-summaries .post-metadata .post-metadata-categories {
+  margin: 0;
+}
+
+/**********************************************************
+Categories Page
+***********************************************************/
+.categories-header {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 30px 0;
+  font-size: 30px;
+  letter-spacing: 12px;
+}
+
+.categories {
+  text-align: center;
+}
+.categories .category {
+  text-transform: capitalize;
+  font-size: 20px;
+  margin: 0 0 10px 0;
+}
+
+/**********************************************************
+Category Page
+***********************************************************/
+.category-header {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 30px 0;
+}
+.category-header .category-intro {
+  font-size: 20px;
+  letter-spacing: 8px;
+}
+.category-header .category-name {
+  font-size: 30px;
+  letter-spacing: 12px;
+}
+
+.category-post-summaries {
+  display: grid;
+  grid-gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(325.5px, 700px));
+  justify-content: space-between;
+}
+@media only screen and (max-width: 1500px) {
+  .category-post-summaries {
+    padding: 0 50px 0 50px;
+  }
+}
+@media only screen and (max-width: 820px) {
+  .category-post-summaries {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .category-post-summaries {
+    grid-template-columns: minmax(1px, 700px);
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+  }
+}
+@media only screen and (max-width: 820px) {
+  .category-post-summaries .text-container {
+    margin: 0 15px 0 15px;
+  }
+}
+.category-post-summaries .post-title {
+  margin: 5px 0 10px 0;
+}
+.category-post-summaries .post-summary {
+  text-align: left;
+  margin: 0 0 10px 0;
+}
+.category-post-summaries .post-metadata .post-metadata-date {
+  margin: 0;
+}
+.category-post-summaries .post-metadata .post-metadata-categories {
+  margin: 0;
+}
+
+/**********************************************************
+About Page
+***********************************************************/
 /**********************************************************
 Post Element Styles
 ***********************************************************/

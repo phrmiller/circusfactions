@@ -71,7 +71,7 @@ $medium: 500;
 $semi-bold: 600;
 $bold: 700;
 $extra-bold: 800;
-$site-wide-font-stack: Cormorant-Garamond-Regular, Serif;
+$site-wide-font-stack: EB-Garamond, Serif;
 @mixin font-site-title-large {
     font-family: EB-Garamond;
     text-align: center;
@@ -130,6 +130,69 @@ $site-wide-font-stack: Cormorant-Garamond-Regular, Serif;
     text-transform: capitalize;
     color: $medium-gray;
 }
+
+@mixin post-summary-tiling {
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(325.5px, 700px));
+    justify-content: space-between;
+
+    @media only screen and (max-width: $site-width) {
+        & {
+            padding: 0 50px 0 50px;
+        }
+    }
+
+    @media only screen and (max-width: 820px) {
+        & {
+            margin: 0 0 0 0;
+            padding: 0 0 0 0;
+        }
+    }
+
+    @media only screen and (max-width: 700px) {
+        & {
+            grid-template-columns: minmax(1px,700px);
+            margin: 0 0 0 0;
+            padding: 0 0 0 0;
+        }
+    }
+
+    .post-summary-container {
+    }
+
+    .text-container {
+        //text-align: center;
+        @media only screen and (max-width: 820px) {
+            & {
+                margin: 0 15px 0 15px;
+            }
+        }
+    }
+
+    .post-title {
+        margin: 5px 0 10px 0;
+        //text-transform: uppercase;
+    }
+
+    .post-summary {
+        //display: none;
+        text-align: left;
+        margin: 0 0 10px 0;
+    }
+
+    .post-metadata {
+        
+        .post-metadata-date {
+            margin: 0;
+        }
+
+        .post-metadata-categories {
+            margin: 0;
+        }
+    }
+}
+
 
 // Colors
 $black: rgba(0,0,0,0.87);
@@ -293,78 +356,85 @@ img {
 
 
 /**********************************************************
-Home Element Styles
+Home Page
 ***********************************************************/
 
 .home-post-summaries {
-    display: grid;
-    grid-gap: 50px;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    justify-content: space-between;
+    @include post-summary-tiling();
+}
 
-    @media only screen and (max-width: $site-width) {
-        & {
-            padding: 0 40px 0 40px;
-        }
-    }
+/**********************************************************
+All Page
+***********************************************************/
 
-    @media only screen and (max-width: 819px) {
-        & {
-            display: block;
-            margin: 40 0 40 0;
-            padding: 0 0 0 0;
-        }
+.all-header {
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 30px 0;
+    font-size: 30px;
+    letter-spacing: 12px;
+}
 
-        & .post-summary-container:not(:last-child) {
-            margin: 0 0 60px 0;
-        }
-    }
+.all-post-summaries {
+    @include post-summary-tiling();
+}
 
-    .post-summary-container {
-        //flex: 1 1 350px;
-        //max-width: 700px;
-        //margin: 0 auto 0 auto;
+/**********************************************************
+Categories Page
+***********************************************************/
 
-        &:not(:last-child) {
-            margin: 0 auto 0 auto;
-        }
+.categories-header {
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 30px 0;
+    font-size: 30px;
+    letter-spacing: 12px;
+}
 
-        .image-container {
-            margin: 0;
-        }
-    
-        .text-container {
-            //text-align: center;
-            @media only screen and (max-width: 819px) {
-                & {
-                    margin: 0 15px 0 15px;
-                }
-            }
-        
-            .post-title {
-                margin: 5px 0 10px 0;
-                //text-transform: uppercase;
-            }
-        
-            .post-summary {
-                //display: none;
-                text-align: left;
-                margin: 0 0 10px 0;
-            }
-    
-            .post-metadata {
-                
-                .post-metadata-date {
-                    margin: 0;
-                }
-    
-                .post-metadata-categories {
-                    margin: 0;
-                }
-            }
-        }
+.categories {
+    text-align: center;
+
+    .category {
+        text-transform: capitalize;
+        font-size: 20px;
+        margin: 0 0 10px 0;
     }
 }
+
+
+
+/**********************************************************
+Category Page
+***********************************************************/
+
+
+.category-header {
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 30px 0;
+
+    .category-intro {
+        font-size: 20px;
+        letter-spacing: 8px;
+    }
+
+    .category-name {
+        font-size: 30px;
+        letter-spacing: 12px;
+    }
+}
+
+.category-post-summaries {
+    @include post-summary-tiling();
+}
+
+
+/**********************************************************
+About Page
+***********************************************************/
+
+
+
 
 
 /**********************************************************
@@ -437,7 +507,6 @@ Post Element Styles
 .lightbox {
     /* Default to hidden */
     display: none;
-  
     /* Overlay entire screen */
     position: fixed;
     z-index: 999;
@@ -445,27 +514,24 @@ Post Element Styles
     left: 0;
     right: 0;
     bottom: 0;
-    
     /* A bit of padding around image */
     padding: 1em;
-  
     /* Translucent background */
     background: rgba(0, 0, 0, 0.8);
-  }
+}
   
-  /* Unhide the lightbox when it's the target */
-  .lightbox:target {
+/* Unhide the lightbox when it's the target */
+.lightbox:target {
     display: block;
-  }
+}
   
-  .lightbox span {
+.lightbox span {
     /* Full width and height */
     display: block;
     width: 100%;
     height: 100%;
-  
     /* Size and position background image */
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-  }
+}

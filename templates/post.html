@@ -5,7 +5,11 @@
     <div class="post-container">
         <div class="post-title">{{posts[post].metadata['title']}}</div>
         {% include 'post-metadata.html' %}
-        <div class="post">{{ posts[post] }}</div>
+        <div class="post">
+
+            {{ posts[post] }}
+        
+        </div>
     </div><!--end post-container-->
     <div class="right-side-space"></div>
 </div><!--end post-content-->

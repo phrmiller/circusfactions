@@ -1,5 +1,8 @@
 {% extends "layout.html" %}
 {% block content %}
+<div class="all-header">
+    all posts
+</div>
 <div class="all-post-summaries">
     {% for post in posts %}
     {% include 'post-summary.html' %}

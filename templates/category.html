@@ -1,7 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
+<div class="category-header">
+    <div class="category-intro">posts about</div>
+    <div class="category-name">{{category}}</div>
+</div>
 <div class="category-post-summaries">
-    <h1>{{category}}</h1>
     {% for post in posts %}
     {% if category in posts[post].metadata['categories'] %}
     {% include 'post-summary.html' %}

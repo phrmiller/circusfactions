@@ -1,13 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
+<div class="categories-header">
+    categories
+</div>
 {% for category in categories %}
-<div class="category">
-    <a href="categories/{{category}}.html">
-        <div class="category-name">
-            {{category}}
-        </div>
-        <div class="category-count">related posts: {{categories[category]}}</div>
-    </a>
+<div class="categories">
+    <div class="category">
+        <a href="categories/{{category}}.html">{{category}} </a>
+        <a class="category-count" href="categories/{{category}}.html">({{categories[category]}})</a>
+    </div>
 </div>
 {% endfor %}
 {% endblock %}

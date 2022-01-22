@@ -1,0 +1,6 @@
+{
+    "markdown.preview.typographer": true,
+    "markdown.styles": [
+        "vs-code-style.css"
+    ]
+}
